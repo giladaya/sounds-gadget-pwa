@@ -3,7 +3,8 @@
   <head>
     <title>SVG Illustrator Test</title>
     <style>
-      body, html {
+      body,
+      html {
         margin: 0;
         padding: 0;
       }
@@ -20,76 +21,81 @@
       width="100%"
       height="100%"
     ></object>
-    <audio id="sound01" src="assets/sound01.mp3"></audio>
-    <audio id="sound02" src="assets/sound02.mp3"></audio>
-    <audio id="sound03" src="assets/sound03.mp3"></audio>
-    <audio id="sound04" src="assets/sound04.mp3"></audio>
-    <audio id="sound05" src="assets/sound05.mp3"></audio>
-    <audio id="sound06" src="assets/sound06.mp3"></audio>
-    <audio id="sound07" src="assets/sound07.mp3"></audio>
-    <audio id="sound08" src="assets/sound08.mp3"></audio>
 
+    <script src="loopify.js" type="text/javascript"></script>
     <script>
-      const svg = document.getElementById("keychainsvg");
-      const audios = document.querySelectorAll("audio");
-      let currentIdx = 0;
-      let nowPlaying = false;
+      (function(loopify) {
+        const svg = document.getElementById("keychainsvg");
+        // const audios = document.querySelectorAll("audio");
+        // let currentIdx = 0;
+        // let nowPlaying = false;
 
-      function initAudios() {
-        audios.forEach(audio => {
-          audio.addEventListener('ended', () => {
-            if (nowPlaying) {
-              audio.currentTime = 0;  
-              audio.play();
-            }
-          })
-        })
-      }
+        // function initAudios() {
+        //   audios.forEach(audio => {
+        //     audio.addEventListener("ended", () => {
+        //       if (nowPlaying) {
+        //         audio.currentTime = 0;
+        //         audio.play();
+        //       }
+        //     });
+        //   });
+        // }
 
-      function startPlaying(idx) {
-        nowPlaying = true;
-        currentIdx = idx;
-        audios[currentIdx].currentTime = 0;  
-        audios[currentIdx].play();
-      }
+        // function startPlaying(idx) {
+        //   nowPlaying = true;
+        //   currentIdx = idx;
+        //   audios[currentIdx].currentTime = 0;
+        //   audios[currentIdx].play();
+        // }
 
-      function stopPlaying() {
-        nowPlaying = false;
-        // audios[currentIdx].pause();
-      }
+        // function stopPlaying() {
+        //   nowPlaying = false;
+        //   // audios[currentIdx].pause();
+        // }
 
-      function initButtonEvents() {
-        // get the inner DOM of svg
-        var svgDoc = svg.contentDocument;
-        // get the inner element by id
-        for (let i = 1; i < 9; i++) {
-          const btn = svgDoc.getElementById(`button${i.toString().padStart(2, '0')}`);
-          // add behaviour
-          btn.addEventListener(
-            "mousedown",
-            () => {
-              startPlaying(i - 1);
-            },
-            false
-          );
-          btn.addEventListener(
-            "mouseup",
-            () => {
-              stopPlaying(i - 1);
-            },
-            false
-          );
+        function initButtonEvents() {
+          // get the inner DOM of svg
+          var svgDoc = svg.contentDocument;
+          // get the inner element by id
+          for (let i = 1; i < 9; i++) {
+            const idxStr = i.toString().padStart(2, "0");
+            const btn = svgDoc.getElementById(
+              `button${idxStr}`
+            );
+            loopify(`assets/sound${idxStr}.mp3`, function(err, loop) {
+              // If something went wrong, `err` is supplied
+              if (err) {
+                return console.err(err);
+              }
+
+              btn.addEventListener(
+                "mousedown",
+                () => {
+                  loop.play();
+                  btn.style.opacity = 0.8;
+                },
+                false
+              );
+              btn.addEventListener(
+                "mouseup",
+                () => {
+                  loop.stop(),
+                  btn.style.opacity = 1;
+                },
+                false
+              );
+            });
+
+            // add behaviour
+            
+          }
         }
-      }
-      
-      // It's important to add an load event listener to the object,
-      // as it will load the svg doc asynchronously
-      svg.addEventListener(
-        "load",
-        initButtonEvents,
-        false
-      );
-      initAudios();
+
+        // It's important to add an load event listener to the object,
+        // as it will load the svg doc asynchronously
+        svg.addEventListener("load", initButtonEvents, false);
+        // initAudios();
+      })(loopify);
     </script>
   </body>
 </html>

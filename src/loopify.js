@@ -26,6 +26,7 @@
       function success(buffer) {
 
         var source;
+        var started;
 
         function play() {
 
@@ -41,6 +42,7 @@
           source.loop = true;
 
           // Play it
+          started = context.currentTime;
           source.start(0);
 
         }
@@ -49,8 +51,13 @@
 
           // Stop and clear if it's playing
           if (source) {
-            source.stop();
-            source = null;
+            var elapsed = context.currentTime - started;
+            var timeLeft = source.buffer.duration - elapsed % source.buffer.duration;
+            // console.log('elapsed', elapsed, 'left', timeLeft)
+            setTimeout(function() {
+              source.stop();
+              source = null;
+            }, timeLeft * 1000);
           }
 
         }

@@ -2,6 +2,10 @@
 <html>
   <head>
     <title>SVG Illustrator Test</title>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"
+    />
     <style>
       body,
       html {
@@ -59,35 +63,29 @@
           // get the inner element by id
           for (let i = 1; i < 9; i++) {
             const idxStr = i.toString().padStart(2, "0");
-            const btn = svgDoc.getElementById(
-              `button${idxStr}`
-            );
+            const btn = svgDoc.getElementById(`button${idxStr}`);
             loopify(`assets/sound${idxStr}.mp3`, function(err, loop) {
               // If something went wrong, `err` is supplied
               if (err) {
                 return console.err(err);
               }
 
-              btn.addEventListener(
-                "mousedown",
-                () => {
-                  loop.play();
-                  btn.style.opacity = 0.8;
-                },
-                false
-              );
-              btn.addEventListener(
-                "mouseup",
-                () => {
-                  loop.stop(),
-                  btn.style.opacity = 1;
-                },
-                false
-              );
-            });
+              const handleMouseDown = e => {
+                e.preventDefault();
+                loop.play();
+                btn.style.opacity = 0.8;
+              };
 
-            // add behaviour
-            
+              const handleMouseUp = e => {
+                e.preventDefault();
+                loop.stop(), (btn.style.opacity = 1);
+              };
+
+              btn.addEventListener("mousedown", handleMouseDown, false);
+              btn.addEventListener("touchstart", handleMouseDown, false);
+              btn.addEventListener("mouseup", handleMouseUp, false);
+              btn.addEventListener("touchend", handleMouseUp, false);
+            });
           }
         }
 

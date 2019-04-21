@@ -29,9 +29,9 @@
         var started;
 
         function play() {
-
+          // console.log('loopify start');
           // Stop if it's already playing
-          stop();
+          stopImmediate();
 
           // Create a new source (can't replay an existing source)
           source = context.createBufferSource();
@@ -47,14 +47,24 @@
 
         }
 
-        function stop() {
+        function stopImmediate() {
+          // console.log('loopify stop immediate', !!source);
+          // Stop and clear if it's playing
+          if (source) {
+              source.stop();
+              source = null;
+          }
+        }
 
+        function stop() {
+          // console.log('loopify stop', !!source);
           // Stop and clear if it's playing
           if (source) {
             var elapsed = context.currentTime - started;
             var timeLeft = source.buffer.duration - elapsed % source.buffer.duration;
             // console.log('elapsed', elapsed, 'left', timeLeft)
             setTimeout(function() {
+              // console.log('loopify stop timeout', !!source);
               source.stop();
               source = null;
             }, timeLeft * 1000);

@@ -74,20 +74,38 @@
               }
 
               const handleMouseDown = e => {
-                e.preventDefault();
+                if (e.cancelable) {
+                  e.preventDefault();
+                } else {
+                  console.log('Down not cancelable');
+                }
                 loop.play();
                 btn.style.opacity = 0.8;
               };
 
               const handleMouseUp = e => {
-                e.preventDefault();
-                loop.stop(), (btn.style.opacity = 1);
+                if (e.cancelable) {
+                  e.preventDefault();
+                } else {
+                  console.log('Up not cancelable');
+                }
+                loop.stop();
+                btn.style.opacity = 1;
+                console.log('stop');
               };
 
               btn.addEventListener("mousedown", handleMouseDown, false);
               btn.addEventListener("touchstart", handleMouseDown, false);
               btn.addEventListener("mouseup", handleMouseUp, false);
+              btn.addEventListener("mouseleave", (e) => {
+                if (e.buttons === 1) {
+                  handleMouseUp(e);
+                } else {
+                  // console.log('Not down');
+                }
+              }, false);
               btn.addEventListener("touchend", handleMouseUp, false);
+              btn.addEventListener("touchcancel", handleMouseUp, false);
             });
           }
         }

@@ -468,20 +468,21 @@
        y="578.02905"
        rx="3.9163125"
        ry="4.2961888" />
-    <flowRoot
-       transform="matrix(1,0,0,1.556486,101.05836,-542.78619)"
-       style="font-style:normal;font-weight:normal;font-size:30px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="flowRoot4522"
-       xml:space="preserve"><flowRegion
-         id="flowRegion4524"><rect
-           style="font-size:30px"
-           y="794.77332"
-           x="185.86807"
-           height="54.548237"
-           width="187.88837"
-           id="rect4526" /></flowRegion><flowPara
-         style="fill:#ffffff"
-         id="flowPara4528">EXECUTOR</flowPara></flowRoot>    <path
+    <text
+       transform="scale(0.80154404,1.2475921)"
+       id="text4635"
+       y="593.79211"
+       x="357.96603"
+       style="font-style:normal;font-weight:normal;font-size:37.42776108px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4637"
+         y="593.79211"
+         x="357.96603"><tspan
+           id="tspan4639"
+           style="fill:#ffffff"
+           y="593.79211"
+           x="357.96603">EXECUTOR</tspan></tspan></text>
+    <path
        style="opacity:1;fill:none;fill-opacity:1;stroke:url(#linearGradient4610);stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 424.33728,318.76006 c -3.44191,0.028 -7.16785,0.9329 -10.30468,0.27344 -32.39693,0.0161 -64.79523,-0.0331 -97.19141,0.0234 -6.36225,1.0759 -7.09554,9.87794 -10.72461,14.32618 -9.58571,17.51584 -23.46423,31.72512 -38.45898,44.01367 -5.50194,6.19824 -1.80109,15.70663 -2.88086,23.26172 0.12375,91.55155 -0.24643,183.14804 0.18554,274.67187 0.51117,1.38519 1.02293,1.55195 4.14258,1.35938 l 205.95313,0 c 1.20135,0.15906 3.96679,0.30697 3.96679,-1.20117 0.69737,-33.51277 0.0923,-67.27675 0.29492,-100.88477 -0.1159,-64.02654 0.23185,-128.08278 -0.17187,-192.08984 -2.41549,-8.08943 -11.28175,-11.06108 -16.26172,-17.10743 -13.21323,-12.21239 -23.09613,-27.80894 -31.44531,-43.97265 -1.92155,-2.18609 -4.42647,-2.69561 -7.10352,-2.67383 z"
        id="path4608" />

@@ -6,10 +6,10 @@
       name="viewport"
       content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"
     />
-    <link rel="icon" href="assets/icons/icon-72x72.png">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#9198e5"/>
-    <link rel="stylesheet" href="index.css"/>
+    <link rel="icon" href="assets/icons/icon-72x72.png" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#9198e5" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <noscript>
@@ -26,5 +26,24 @@
 
     <script src="loopify.js" type="text/javascript"></script>
     <script src="index.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker.register("/sw.js").then(
+            function(registration) {
+              // Registration was successful
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                registration.scope
+              );
+            },
+            function(err) {
+              // registration failed :(
+              console.log("ServiceWorker registration failed: ", err);
+            }
+          );
+        });
+      }
+    </script>
   </body>
 </html>

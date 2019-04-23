@@ -1,31 +1,5 @@
 (function(loopify) {
   const svg = document.getElementById("keychainsvg");
-  // const audios = document.querySelectorAll("audio");
-  // let currentIdx = 0;
-  // let nowPlaying = false;
-
-  // function initAudios() {
-  //   audios.forEach(audio => {
-  //     audio.addEventListener("ended", () => {
-  //       if (nowPlaying) {
-  //         audio.currentTime = 0;
-  //         audio.play();
-  //       }
-  //     });
-  //   });
-  // }
-
-  // function startPlaying(idx) {
-  //   nowPlaying = true;
-  //   currentIdx = idx;
-  //   audios[currentIdx].currentTime = 0;
-  //   audios[currentIdx].play();
-  // }
-
-  // function stopPlaying() {
-  //   nowPlaying = false;
-  //   // audios[currentIdx].pause();
-  // }
 
   function initButtonEvents() {
     // get the inner DOM of svg
@@ -44,7 +18,7 @@
           if (e.cancelable) {
             e.preventDefault();
           } else {
-            console.log('Down not cancelable');
+            console.log("Down not cancelable");
           }
           loop.play();
           btn.style.opacity = 0.8;
@@ -54,23 +28,27 @@
           if (e.cancelable) {
             e.preventDefault();
           } else {
-            console.log('Up not cancelable');
+            console.log("Up not cancelable");
           }
           loop.stop();
           btn.style.opacity = 1;
-          console.log('stop');
+          console.log("stop");
         };
 
         btn.addEventListener("mousedown", handleMouseDown, false);
         btn.addEventListener("touchstart", handleMouseDown, false);
         btn.addEventListener("mouseup", handleMouseUp, false);
-        btn.addEventListener("mouseleave", (e) => {
-          if (e.buttons === 1) {
-            handleMouseUp(e);
-          } else {
-            // console.log('Not down');
-          }
-        }, false);
+        btn.addEventListener(
+          "mouseleave",
+          e => {
+            if (e.buttons === 1) {
+              handleMouseUp(e);
+            } else {
+              // console.log('Not down');
+            }
+          },
+          false
+        );
         btn.addEventListener("touchend", handleMouseUp, false);
         btn.addEventListener("touchcancel", handleMouseUp, false);
       });

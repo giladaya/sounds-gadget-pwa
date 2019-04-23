@@ -1,3 +1,5 @@
+'use strict';
+
 (function(loopify) {
   const svg = document.getElementById("keychainsvg");
 

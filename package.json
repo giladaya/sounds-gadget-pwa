@@ -1,0 +1,30 @@
+{
+  "name": "sounds-gadget-pwa",
+  "version": "1.0.0",
+  "description": "Progressive web app recreating a classic keychain gadget",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server src",
+    "deploy": "gh-pages -d src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giladaya/sounds-gadget-pwa.git"
+  },
+  "keywords": [
+    "pwa",
+    "webaudio"
+  ],
+  "author": "Gilad Dayagi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giladaya/sounds-gadget-pwa/issues"
+  },
+  "homepage": "https://github.com/giladaya/sounds-gadget-pwa#readme",
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "live-server": "^1.2.1",
+    "serve": "^11.0.0"
+  }
+}

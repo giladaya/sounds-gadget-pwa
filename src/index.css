@@ -29,6 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid #4a433a;
 }
 #infolink a {
   text-decoration: none;
@@ -49,7 +50,8 @@ body {
   width: 100%;
   background: white;
   padding: 1em;
-  transition: all 0.5s; 
+  transition: transform 0.5s; 
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 #installContainer img {
   max-height: 40px;

@@ -15,7 +15,9 @@
     <noscript>
       This won't work without Javascript :(
     </noscript>
-
+    <div id="infolink">
+      <a href="https://github.com/giladaya/sounds-gadget-pwa">ⓘ</a>
+    </div>
     <object
       data="assets/executor_keychain_plain.svg"
       type="image/svg+xml"
@@ -24,8 +26,17 @@
       height="100%"
     ></object>
 
+    <!-- Install button, hidden by default -->
+    <div id="installContainer" class="hidden">
+      <img src="assets/icons/icon-72x72.png" alt="logo"/>
+      <button id="butInstall" type="button">
+        Click to install to home screen
+      </button>
+    </div>
+
     <script src="loopify.js" type="text/javascript"></script>
     <script src="index.js"></script>
+    <script src="install.js"></script>
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function() {

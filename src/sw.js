@@ -1,4 +1,4 @@
-// version: 1.5
+// version: 1.6.0
 "use strict";
 
 console.log("Hello from SW");

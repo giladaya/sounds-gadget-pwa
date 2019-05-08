@@ -1,5 +1,2 @@
-Resources for PWA talk
-
-TODO:
-- manifest
-- service worker
+# Executor
+PWA demo app recreating the famouse 80's toy gadget

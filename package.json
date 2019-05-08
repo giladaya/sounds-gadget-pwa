@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server src",
-    "deploy": "gh-pages -d src"
+    "start": "live-server src --port=8089",
+    "deploy:gh": "gh-pages -d src",
+    "deploy": "surge src perpetual-join.surge.sh"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,12 @@
   },
   "homepage": "https://github.com/giladaya/sounds-gadget-pwa#readme",
   "devDependencies": {
+    "1mb-cli": "^1.0.5",
     "gh-pages": "^2.0.1",
     "live-server": "^1.2.1",
     "serve": "^11.0.0"
+  },
+  "dependencies": {
+    "surge": "^0.20.4"
   }
 }

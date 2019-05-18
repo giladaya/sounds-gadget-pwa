@@ -29,6 +29,6 @@
     "live-server": "^1.2.1"
   },
   "dependencies": {
-    "surge": "^0.20.4"
+    "surge": "^0.20.5"
   }
 }

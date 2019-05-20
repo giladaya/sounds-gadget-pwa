@@ -1,12 +1,21 @@
-'use strict';
+"use strict";
 
 (function(loopify) {
-  const svg = document.getElementById("keychainsvg");
+  const SVG_URL = "assets/executor_keychain_plain.svg";
+  const svgContainer = document.getElementById("keychainsvgContainer");
 
-  function initButtonEvents() {
-    // get the inner DOM of svg
-    var svgDoc = svg.contentDocument;
-    // get the inner element by id
+  // load SVG and inline
+  fetch(SVG_URL)
+    .then(response => response.text())
+    .then(data => {
+      svgContainer.innerHTML = "";
+      svgContainer.insertAdjacentHTML("afterbegin", data);
+      const svgEl = svgContainer.querySelector("svg");
+
+      initButtonEvents(svgEl);
+    });
+
+  function initButtonEvents(svgDoc) {
     for (let i = 1; i < 9; i++) {
       const idxStr = i.toString().padStart(2, "0");
       const btn = svgDoc.getElementById(`button${idxStr}`);
@@ -56,9 +65,4 @@
       });
     }
   }
-
-  // It's important to add an load event listener to the object,
-  // as it will load the svg doc asynchronously
-  svg.addEventListener("load", initButtonEvents, false);
-  // initAudios();
 })(loopify);

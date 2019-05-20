@@ -14,9 +14,15 @@ body {
   background-image: url(assets/80s-retro-sci-fi-background.jpg);
   background-size: cover;
 }
-#keychainsvg {
-  max-height: 97vh;
+#keychainsvgContainer {
+  height: 100%;
 }
+#keychainsvgContainer svg {
+  max-height: 97vh;
+  height: 100%;
+  width: 100%;
+}
+
 #infolink {
   position: fixed;
   top: 12px;

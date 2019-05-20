@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "live-server src_base --port=8091",
-    "start:final": "live-server src_base --port=8089",
+    "start:final": "live-server src --port=8089",
     "deploy:gh": "gh-pages -d src",
     "deploy": "surge src perpetual-join.surge.sh"
   },

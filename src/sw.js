@@ -1,4 +1,4 @@
-// version: 1.6.3
+// version: 1.6.9
 "use strict";
 
 console.log("Hello from SW");
@@ -11,6 +11,7 @@ self.addEventListener("install", function(e) {
         "/",
         "/index.html",
         "/index.js",
+        "/install.js",
         "/index.css",
         "/manifest.json",
         "/loopify.js",

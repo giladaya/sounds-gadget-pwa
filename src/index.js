@@ -5,15 +5,17 @@
   const svgContainer = document.getElementById("keychainsvgContainer");
 
   // load SVG and inline
-  fetch(SVG_URL)
-    .then(response => response.text())
-    .then(data => {
-      svgContainer.innerHTML = "";
-      svgContainer.insertAdjacentHTML("afterbegin", data);
-      const svgEl = svgContainer.querySelector("svg");
+  function loadSvg(url, svgContainer) {
+    return fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        svgContainer.innerHTML = "";
+        svgContainer.insertAdjacentHTML("afterbegin", data);
+        const svgEl = svgContainer.querySelector("svg");
 
-      initButtonEvents(svgEl);
-    });
+        return Promise.resolve(svgEl);
+      });
+  }
 
   function initButtonEvents(svgDoc) {
     for (let i = 1; i < 9; i++) {
@@ -43,7 +45,6 @@
           }
           loop.stop();
           btn.style.opacity = 1;
-          console.log("stop");
         };
 
         btn.addEventListener("mousedown", handleMouseDown, false);
@@ -65,4 +66,7 @@
       });
     }
   }
+
+  // init
+  loadSvg(SVG_URL, svgContainer).then(initButtonEvents);
 })(loopify);

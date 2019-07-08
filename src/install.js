@@ -1,16 +1,18 @@
 const divInstall = document.getElementById("installContainer");
-const butInstall = document.getElementById("butInstall");
+const btnInstall = document.getElementById("btnInstall");
 
 window.addEventListener("beforeinstallprompt", event => {
   console.log("👍", "beforeinstallprompt", event);
+  // prevent the mini-infobar from appearing
+  event.preventDefault();
   // Stash the event so it can be triggered later.
   window.deferredPrompt = event;
   // Remove the 'hidden' class from the install button container
   divInstall.classList.toggle("hidden", false);
 });
 
-butInstall.addEventListener("click", (ev) => {
-  console.log("👍", "butInstall-clicked");
+btnInstall.addEventListener("click", ev => {
+  console.log("👍", "btnInstall-clicked");
   ev.preventDefault();
   // Hide the install button.
   divInstall.classList.toggle("hidden", true);

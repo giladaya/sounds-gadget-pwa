@@ -1,6 +1,7 @@
 {
   "name": "Executor Sounds Keychain",
   "short_name": "Executor",
+  "description": "Retro sound gadget",
   "theme_color": "#9198e5",
   "background_color": "#e66465",
   "display": "standalone",

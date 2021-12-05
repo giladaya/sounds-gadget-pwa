@@ -25,10 +25,8 @@
   },
   "homepage": "https://github.com/giladaya/sounds-gadget-pwa#readme",
   "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "live-server": "^1.2.1"
-  },
-  "dependencies": {
-    "surge": "^0.20.5"
+    "gh-pages": "^3.2.3",
+    "live-server": "^1.2.1",
+    "surge": "^0.23.0"
   }
 }
